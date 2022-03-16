@@ -4,6 +4,10 @@ import java.util.Random;
 
 public class MagicSquareCreator
 {
+
+    //THIS GETS VERY SLOW AFTER YOU USE 6 FOR N & M - there is a much better way to do this :/
+    //THIS GETS VERY SLOW AFTER YOU USE 6 FOR N & M - there is a much better way to do this :/
+
     static int sum = 0;
 
     public static void createMagicSquare(int n, int m)
@@ -13,6 +17,7 @@ public class MagicSquareCreator
         for (int thisProgramIsSlow = 0; thisProgramIsSlow < 1; thisProgramIsSlow++)
         {
             int temporary = thisProgramIsSlow-1;
+            //creates magic square values
             for (int i = 0; i < n; i++)
             {
                 int temp = i-1;
@@ -22,6 +27,7 @@ public class MagicSquareCreator
                     Random r = new Random();
                     magicSquare[i][j] = r.nextInt((m+1));
                 }
+                //checks rows
                 for (int k = 0; k < n; k++)
                 {
                     sum += magicSquare[i][k];
@@ -32,6 +38,7 @@ public class MagicSquareCreator
                 }
                 sum = 0;
             }
+            //checks columns
             for (int i = 0; i < n; i++)
             {
                 for (int k = 0; k < n; k++)
@@ -44,6 +51,7 @@ public class MagicSquareCreator
                 }
                 sum = 0;
             }
+            //checks diagonal top left - bottom right
             for (int i = 0; i < n; i++)
             {
                 for (int k = 0; k < n; k++)
@@ -56,21 +64,20 @@ public class MagicSquareCreator
                 }
                 sum = 0;
             }
-            for (int i = 0; i < n; i++)
+            //checks diagonal bottom left - top right
+            int index = (n-1);
+            for (int k = 0; k < n; k++)
             {
-                int index = (n-1);
-                for (int k = 0; k < n; k++)
-                {
-                    sum += magicSquare[index][k];
-                    index -= 1;
-                }
-                if (!(sum == m))
-                {
-                    thisProgramIsSlow = temporary;
-                }
-                sum = 0;
+                sum += magicSquare[index][k];
+                index -= 1;
             }
+            if (!(sum == m))
+            {
+                thisProgramIsSlow = temporary;
+            }
+            sum = 0;
         }
+        //prints out result
         for (int p = 0; p < magicSquare.length; p++)
         {
             for (int q = 0; q < magicSquare[0].length; q++)

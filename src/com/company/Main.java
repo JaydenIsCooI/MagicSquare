@@ -6,6 +6,9 @@ public class Main extends MagicSquareCreator {
 
     public static void main(String[] args) {
 
+        //THIS GETS VERY SLOW AFTER YOU USE 6 FOR N & M - there is a much better way to do this :/
+        //THIS GETS VERY SLOW AFTER YOU USE 6 FOR N & M - there is a much better way to do this :/
+
         System.out.println("n = number of rows and columns (Ex. n = 2;  Matrix = 2x2)");
         System.out.println("m = magic number (number that all numbers in each row/column add up too)" + "\n");
         int n = 0;
