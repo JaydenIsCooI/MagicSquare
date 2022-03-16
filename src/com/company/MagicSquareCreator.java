@@ -44,6 +44,32 @@ public class MagicSquareCreator
                 }
                 sum = 0;
             }
+            for (int i = 0; i < n; i++)
+            {
+                for (int k = 0; k < n; k++)
+                {
+                    sum += magicSquare[k][k];
+                }
+                if (!(sum == m))
+                {
+                    thisProgramIsSlow = temporary;
+                }
+                sum = 0;
+            }
+            for (int i = 0; i < n; i++)
+            {
+                int index = (n-1);
+                for (int k = 0; k < n; k++)
+                {
+                    sum += magicSquare[index][k];
+                    index -= 1;
+                }
+                if (!(sum == m))
+                {
+                    thisProgramIsSlow = temporary;
+                }
+                sum = 0;
+            }
         }
         for (int p = 0; p < magicSquare.length; p++)
         {
